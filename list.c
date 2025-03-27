@@ -37,22 +37,18 @@ List * createList() {
 }
 
 void * firstList(List * list) {
-    if(!list->head){
-        return NULL;
-    } else {
-        list->current = list->head;
-        return list->head->data;
-    }
+    if(!list->head)return NULL;
+    list->current = list->head;
+    return list->head->data;
+    
 }
 
 void * nextList(List * list) {
-    if(!list->current || !list->current->next){
-        return NULL;
-    } else {
-        list->current = list->current->next;
-        return list->current->data;
-    }
+    if(!list->current || !list->current->next)return NULL;
+    list->current = list->current->next;
+    return list->current->data;
 }
+
 
 void * lastList(List * list) {
     if(!list->head){
@@ -82,10 +78,11 @@ void pushFront(List * list, void * data) {
     Node* newNodo = createNode(data);
     if(!list->head){
         list->head = newNodo;
+        list->tail = newNodo;
     } 
+    newNodo->next = list->head;
     list->head->prev = newNodo;
-    newNodo->next = list->head,
-    newNodo = list->head;
+    list->head = newNodo;
 }
 
 void pushBack(List * list, void * data) {
