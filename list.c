@@ -67,7 +67,7 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-    if(!list->current || !list->current->prev || !list){
+    if(!list->current || !list->current->prev){
         return NULL;
     }
     Node* aux = list->head;
