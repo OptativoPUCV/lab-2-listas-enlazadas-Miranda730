@@ -23,3 +23,14 @@ Thu, Mar 27, 2025 10:12:00 PM:
  1 file changed, 3 insertions(+), 3 deletions(-)
  tests:  0|0
 78adf2a
+Thu, Mar 27, 2025 10:24:42 PM: 
+ list.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+In file included from test.c:5:0:
+list.c: In function 'popCurrent':
+list.c:116:5: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+     if(aux = list->current){
+     ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+8fba715
