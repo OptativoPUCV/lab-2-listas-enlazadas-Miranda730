@@ -117,7 +117,7 @@ void * popCurrent(List * list) {
 
     if(!list->current) return NULL;
 
-    if(aux = list->current){
+    if(aux == list->current){
         aux = list->current->next;
         aux->prev = NULL;
         free(list->current);
