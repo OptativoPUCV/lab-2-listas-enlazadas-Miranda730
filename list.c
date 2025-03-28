@@ -97,6 +97,7 @@ void pushCurrent(List * list, void * data) {
         list->tail = newNodo;
     } else {
         newNodo->next = list->current->next;
+        newNodo->next->prev = newNodo;
         list->current->next = newNodo;
     }
 }
@@ -120,7 +121,7 @@ void * popCurrent(List * list) {
     if(aux == list->current){
         aux = list->current->next;
         if(list->head) aux->prev = NULL;
-        
+
         free(list->current);
         list->current = aux;
         return data;
