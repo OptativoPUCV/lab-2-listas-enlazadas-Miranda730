@@ -63,9 +63,8 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-    if(!list->current || !list->current->prev){
-        return NULL;
-    }
+    if(!list->current || !list->current->prev)return NULL;
+
     Node* aux = list->head;
     while(aux->next != list->current){
         aux = aux->next;
@@ -95,6 +94,7 @@ void pushCurrent(List * list, void * data) {
     newNodo->prev = list->current;
     if(!list->current->next){
         list->current->next = newNodo;
+        list->tail = newNodo;
     } else {
         newNodo->next = list->current->next;
         list->current->next = newNodo;
